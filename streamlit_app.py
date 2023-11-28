@@ -50,7 +50,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 
 # don't run anything past here while we troubleshoot
-streamlit.stop()
+#streamlit.stop()
 
 
 

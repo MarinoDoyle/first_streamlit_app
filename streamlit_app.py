@@ -26,8 +26,14 @@ if st.button("Ask"):
     if 'OPENAI_API_KEY' not in os.environ:
         st.error("Please enter your API Key in the sidebar.")
     else:
-        loader = CSVLoader(file_path=r"survey.csv")
-        data = loader.load()
+        agent = create_csv_agent(
+        ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613"),
+        "survey.csv",
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+)
+        # loader = CSVLoader(file_path=r"")
+        # data = loader.load()
 
         text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
         all_splits_csv = text_splitter_csv.split_documents(data)

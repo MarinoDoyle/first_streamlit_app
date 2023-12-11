@@ -12,6 +12,8 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
+from langchain.agents.agent_types import AgentType
+
 
 st.sidebar.title("Enter API Key")
 api_key = st.sidebar.text_input("API Key:")

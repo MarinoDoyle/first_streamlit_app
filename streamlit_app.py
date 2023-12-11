@@ -12,51 +12,27 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 
+import streamlit as st
+from langchain.agents import create_csv_agent, AgentType
+
 st.sidebar.title("Enter API Key")
 api_key = st.sidebar.text_input("API Key:")
 
 if api_key:
-    os.environ['OPENAI_API_KEY'] = api_key
+    agent = create_csv_agent(
+        ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613", api_key=api_key),
+        "titanic.csv",
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+    )
 
 st.title("Chat-Based Language Model")
 
 question = st.text_input("Enter your question here:")
 
 if st.button("Ask"):
-    if 'OPENAI_API_KEY' not in os.environ:
+    if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        agent = create_csv_agent(
-        ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613"),
-        "survey.csv",
-        verbose=True,
-        agent_type=AgentType.OPENAI_FUNCTIONS,
-)
-        # loader = CSVLoader(file_path=r"")
-        # data = loader.load()
-
-        text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
-        all_splits_csv = text_splitter_csv.split_documents(data)
-
-        vector_store = FAISS.from_documents(all_splits_csv, OpenAIEmbeddings())
-
-        retriever = vector_store.as_retriever()
-
-        template = """Answer the question based only on the following context:
-        {context}
-        
-        Question: {question}
-        """
-        prompt = ChatPromptTemplate.from_template(template)
-
-        llm = ChatOpenAI()
-
-        chain = (
-            {"context": retriever, "question": RunnablePassthrough()}
-            | prompt
-            | llm
-            | StrOutputParser()
-        )
-
-        response = chain.invoke(question)
+        response = agent.ask(question)
         st.text_area("Response:", value=response)

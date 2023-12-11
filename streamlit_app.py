@@ -26,14 +26,14 @@ if api_key:
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 # Creating text embeddings and vector database
-loader = CSVLoader(file_path="work_dummy_data.csv")
-data = loader.load()
+#loader = CSVLoader(file_path="work_dummy_data.csv")
+#data = loader.load()
 
-text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
-all_splits_csv = text_splitter_csv.split_documents(data)
+#text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
+#all_splits_csv = text_splitter_csv.split_documents(data)
 
-embeddings = HuggingFaceEmbeddings()
-vector_store = FAISS.from_documents(all_splits_csv, embeddings)
+#embeddings = HuggingFaceEmbeddings()
+#vector_store = FAISS.from_documents(all_splits_csv, embeddings)
 
 st.title("Chat-Based Language Model")
 

@@ -40,14 +40,8 @@ st.title("Chat-Based Language Model")
 question = st.text_input("Enter your question here:")
 
 if st.button("Ask"):
-    if 'csv_agent' not in locals():
+    if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = csv_agent.ask(question)
-        st.text_area("Response from CSV agent:", value=response)
-
-        # Utilizing embeddings and vector database
-        if 'vector_store' in locals():
-            query_embedding = embeddings.encode_text(question)
-            retrieved = vector_store.retrieve(query_embedding)
-            st.text("Retrieved similar documents:", retrieved)
+        response = agent.run(question)
+        st.text_area("Response:", value=response)

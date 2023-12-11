@@ -5,3 +5,4 @@ langchain
 openai
 tiktoken
 sentence-transformers
+langchain-experimental

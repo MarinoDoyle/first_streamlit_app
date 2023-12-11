@@ -3,73 +3,51 @@ import pandas
 import requests
 import snowflake.connector
 from urllib.error import URLError
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.output_parser import StrOutputParser
+from langchain.schema.runnable import RunnablePassthrough
+from langchain.vectorstores import FAISS
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chat_models import ChatOpenAI
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import os
+from langchain.document_loaders.csv_loader import CSVLoader
 
+# Using an OPENAI key
+os.environ['OPENAI_API_KEY'] = "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"
 
-my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-my_fruit_list = my_fruit_list.set_index('Fruit')
+llm = ChatOpenAI()
 
-# Let's put a pick list here so you can pick the fruit they want to include
-streamlit.title('My New Healthy Dinner')
-streamlit.header('Breakfast Favourites')
-streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
-streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
-streamlit.text(' 🐔 Hard-Boiled Free-Range Egg')
-streamlit.text('🥑🍞 Avocado Toast')
-streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
-fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado', 'Strawberries'])
-fruits_to_show = my_fruit_list.loc[fruits_selected] 
+streamlit.title("Chat-Based Language Model")
 
-streamlit.dataframe(fruits_to_show)
+question = streamlit.text_input("Enter your question here:")
 
-# create the repeatable code block (called a function)
-def get_fruityvice_data(this_fruit_choice):
-  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-  # Takes the json version of the response and normalizes it. 
-  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-  return fruityvice_normalized
+if streamlit.button("Ask"):
+    loader = CSVLoader(file_path=r"C:\Users\Marino Doyle\Desktop\Te Tihi Project\Te-Tihi-Project\dummyData\survey_data_extra.csv")
+    data = loader.load()
 
-# New section to display fruityvice api response  
-streamlit.header('Fruityvice Fruit Advice!')
+    text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
+    all_splits_csv = text_splitter_csv.split_documents(data)
 
-try: 
-  fruit_choice = streamlit.text_input('What fruit would you like information about?')
-  if not fruit_choice: 
-    streamlit.error("Please select a fruit to get information.")
+    vector_store = FAISS.from_documents(all_splits_csv, OpenAIEmbeddings())
 
-  else: 
-    back_from_function = get_fruityvice_data(fruit_choice)
-    # Output it the screen as a table
-    streamlit.dataframe(back_from_function)
+    retriever = vector_store.as_retriever()
 
-except URLError as e: 
-  streamlit.error()
-  
-streamlit.write('The user entered ', fruit_choice)
-streamlit.header("View Our Fruit List - Add Your Favourites")
+    template = """Answer the question based only on the following context:
+    {context}
+    
+    Question: {question}
+    """
+    prompt = ChatPromptTemplate.from_template(template)
 
-# Snowflake-related functions
-def get_fruit_load_list():
-  with my_cnx.cursor() as my_cur: 
-    my_cur.execute("SELECT * from fruit_load_list")
-    return my_cur.fetchall()   
+    chain = (
+        {"context": retriever, "question": RunnablePassthrough()}
+        | prompt
+        | llm
+        | StrOutputParser()
+    )
 
-# Add a button to load the fruit:
-if streamlit.button('Get Fruit List'):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  my_data_rows = get_fruit_load_list()
-  my_cnx.close()
-  streamlit.dataframe(my_data_rows)
-
-# Allow the end user to add a fruit to the list 
-def insert_row_snowflake(new_fruit): 
-  with my_cnx.cursor() as my_cur:
-    my_cur.execute("insert into fruit_load_list values ('" + new_fruit  + "')")
-    return "Thanks for adding " + new_fruit
-
-add_my_fruit = streamlit.text_input("What fruit would you like to add? ")
-if streamlit.button('Add a Fruit to the List'):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  back_from_function = insert_row_snowflake(add_my_fruit)
-  streamlit.text(back_from_function)
+    response = chain.invoke(question)
+    streamlit.text_area("Response:", value=response)
 
 

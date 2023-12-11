@@ -26,7 +26,7 @@ if st.button("Ask"):
     if 'OPENAI_API_KEY' not in os.environ:
         st.error("Please enter your API Key in the sidebar.")
     else:
-        loader = CSVLoader(file_path=r"C:\Users\Marino Doyle\Desktop\Te Tihi Project\Te-Tihi-Project\dummyData\survey_data_extra.csv")
+        loader = CSVLoader(file_path=r"survey.csv")
         data = loader.load()
 
         text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)

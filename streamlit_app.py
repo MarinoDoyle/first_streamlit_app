@@ -29,7 +29,7 @@ if streamlit.button("Ask"):
     text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
     all_splits_csv = text_splitter_csv.split_documents(data)
 
-    vector_store = FAISS.from_documents(all_splits_csv, OpenAIEmbeddings())
+    vector_store = FAISS.from_documents(all_splits_csv, HuggingFace())
 
     retriever = vector_store.as_retriever()
 

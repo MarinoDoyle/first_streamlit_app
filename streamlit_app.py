@@ -34,5 +34,5 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = agent.ask(question)
+        response = agent.run(question)
         st.text_area("Response:", value=response)

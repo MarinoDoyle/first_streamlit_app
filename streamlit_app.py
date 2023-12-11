@@ -23,7 +23,7 @@ streamlit.title("Chat-Based Language Model")
 question = streamlit.text_input("Enter your question here:")
 
 if streamlit.button("Ask"):
-    loader = CSVLoader(file_path=r"C:\Users\Marino Doyle\Desktop\Te Tihi Project\Te-Tihi-Project\dummyData\survey_data_extra.csv")
+    loader = CSVLoader(file_path=r"survey.csv")
     data = loader.load()
 
     text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)

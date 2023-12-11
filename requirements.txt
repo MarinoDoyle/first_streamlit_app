@@ -4,3 +4,4 @@ streamlit
 langchain
 openai
 tiktoken
+sentence-transformers

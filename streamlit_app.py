@@ -25,14 +25,29 @@ if api_key:
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
+# Creating text embeddings and vector database
+loader = CSVLoader(file_path="titanic.csv")
+data = loader.load()
+
+text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
+all_splits_csv = text_splitter_csv.split_documents(data)
+
+embeddings = OpenAIEmbeddings(api_key=api_key)
+vector_store = FAISS.from_documents(all_splits_csv, embeddings)
 
 st.title("Chat-Based Language Model")
 
 question = st.text_input("Enter your question here:")
 
 if st.button("Ask"):
-    if 'api_key' not in locals():
+    if 'csv_agent' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = agent.run(question)
-        st.text_area("Response:", value=response)
+        response = csv_agent.ask(question)
+        st.text_area("Response from CSV agent:", value=response)
+
+        # Utilizing embeddings and vector database
+        if 'vector_store' in locals():
+            query_embedding = embeddings.encode_text(question)
+            retrieved = vector_store.retrieve(query_embedding)
+            st.text("Retrieved similar documents:", retrieved)

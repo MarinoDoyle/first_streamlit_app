@@ -1,1 +1,4 @@
 snowflake-connector-python
+faiss-cpu 
+streamlit 
+langchain

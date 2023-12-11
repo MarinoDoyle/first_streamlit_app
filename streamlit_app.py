@@ -11,9 +11,7 @@ from langchain.schema.runnable import RunnablePassthrough
 from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
-
-import streamlit as st
-from langchain.agents import create_csv_agent, AgentType
+from langchain_experimental.agents.agent_toolkits import create_csv_agent
 
 st.sidebar.title("Enter API Key")
 api_key = st.sidebar.text_input("API Key:")

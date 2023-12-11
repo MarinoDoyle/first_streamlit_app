@@ -32,7 +32,7 @@ data = loader.load()
 text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
 all_splits_csv = text_splitter_csv.split_documents(data)
 
-embeddings = OpenAIEmbeddings(api_key=api_key)
+embeddings = HuggingFaceEmbeddings()
 vector_store = FAISS.from_documents(all_splits_csv, embeddings)
 
 st.title("Chat-Based Language Model")

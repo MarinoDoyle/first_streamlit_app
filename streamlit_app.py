@@ -21,7 +21,7 @@ api_key = st.sidebar.text_input("API Key:")
 if api_key:
     agent = create_csv_agent(
         ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613", api_key=api_key),
-        "survey.csv",
+        "work_dummy_data.csv",
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )

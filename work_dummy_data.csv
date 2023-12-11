@@ -1,0 +1,101 @@
+﻿ID,Age,Gender,Education Level,Job Satisfaction,Stress Level,Hours of Sleep,Salary,Marital Status,Employment Status,Transportation Mode,Occupation,Challenges at Work ,Living Situation
+1,46,Female,Ph.D.,6,2,6,$20000 - $40000,Single,Part-time,Bicycle,Software Engineer,"Meeting tight deadlines, keeping up with technology trends",Renting a small apartment in the city
+2,22,Non-binary,High School,3,8,7,$60000 - $80000,Widowed,Full-time,Car,Teacher,"Classroom management, adapting to diverse learning styles",Living in a suburban house with my family
+3,41,Male,Bachelor's Degree,2,4,5,$60000 - $80000,Single,Unemployed,Car,Marketing Specialist,"Competing in a saturated market, staying ahead of trends",Sharing a rented house with roommates
+4,52,Female,High School,8,6,5,$80000 - $100000,Married,Part-time,Car,Nurse,"Long working hours, dealing with emotionally taxing cases",Living in a studio apartment near the hospital
+5,25,Female,High School,5,1,6,$20000 - $40000,Divorced,Unemployed,Public Transportation,Freelance Graphic Designer,"Irregular income, finding new clients",Working from home in a loft-style apartment
+6,64,Female,High School,4,9,5,$60000 - $80000,Widowed,Full-time,Bicycle,Retail Sales Associate,"Dealing with difficult customers, meeting sales targets",Renting a townhouse in a residential neighborhood
+7,31,Male,Ph.D.,10,4,8,$40000 - $60000,Divorced,Unemployed,Car,Chef,"High-pressure kitchen environment, maintaining quality",Residing in an urban apartment with a roommate
+8,33,Male,High School,7,7,6,$20000 - $40000,Married,Full-time,Car,Financial Analyst,"Analyzing complex data, meeting tight reporting deadlines",Living in a condominium in the financial district
+9,49,Male,Ph.D.,2,5,7,$40000 - $60000,Married,Part-time,Bicycle,Construction Worker,"Physical strain, unpredictable weather conditions",Owning a suburban home with a small backyard
+10,63,Female,Ph.D.,7,10,9,$20000 - $40000,Widowed,Self-employed,Public Transportation,Psychologist,"Emotionally demanding cases, managing client expectations",Renting a two-bedroom apartment in a quiet neighborhood
+11,22,Female,Bachelor's Degree,9,2,10,$60000 - $80000,Married,Unemployed,Bicycle,Graphic Designer,"Creative block, client revisions",Working remotely from a cottage in the countryside
+12,44,Female,Master's Degree,9,8,5,$60000 - $80000,Married,Self-employed,Public Transportation,Customer Service Representative,"Handling irate customers, meeting call quotas",Sharing a rented flat with friends in the city
+13,52,Male,Bachelor's Degree,1,1,4,$80000 - $100000,Single,Unemployed,Car,Lawyer,"Long working hours, client pressures",Residing in a downtown apartment near the office
+14,38,Female,Bachelor's Degree,2,6,8,$40000 - $60000,Divorced,Part-time,Car,Doctor,"Long shifts, emotional toll of patient care",Living in hospital-provided housing during on-call shifts
+15,27,Female,Master's Degree,1,3,7,$20000 - $40000,Divorced,Full-time,Walking,Social Media Manager,"Keeping up with platform algorithms, content creation",Renting a modern apartment with a view of the city
+16,24,Non-binary,High School,4,9,7,$20000 - $40000,Married,Full-time,Public Transportation,Police Officer,"Dealing with crime scenes, public scrutiny",Living in a suburban home with my spouse and children
+17,22,Female,Ph.D.,1,4,6,$80000 - $100000,Single,Unemployed,Car,UX/UI Designer,"Balancing aesthetics and functionality, meeting deadlines",Remote work setup in a house with a dedicated office
+18,52,Male,Bachelor's Degree,9,7,8,$60000 - $80000,Married,Full-time,Public Transportation,Accountant,"Managing complex financial records, tax regulations",Renting a one-bedroom apartment in a residential area
+19,42,Female,Bachelor's Degree,7,5,7,$60000 - $80000,Married,Full-time,Car,Sales Manager,"Leading a sales team, meeting revenue targets",Homeownership in a suburban neighborhood
+20,64,Female,High School,5,10,8,$80000 - $100000,Single,Unemployed,Bicycle,Photographer,"Client expectations, post-production workload",Freelancing from a spacious loft in the city
+21,54,Non-binary,Master's Degree,2,2,7,$40000 - $60000,Single,Part-time,Car,HR Specialist,"Employee conflicts, policy implementation",Living in a rented apartment close to the office
+22,27,Male,Ph.D.,5,8,6,$40000 - $60000,Single,Self-employed,Bicycle,Electrician,"Safety concerns, handling electrical faults",Owning a house in a rural area with a workshop
+23,58,Non-binary,Ph.D.,6,1,7,$20000 - $40000,Divorced,Self-employed,Walking,Journalist,"Tight deadlines, staying unbiased in reporting",Renting a studio apartment in a vibrant urban district
+24,29,Male,Master's Degree,4,6,6,$40000 - $60000,Single,Unemployed,Bicycle,Pharmacist,"Dealing with insurance claims, long work hours",Living in a rented duplex near the pharmacy
+25,48,Female,Master's Degree,1,3,7,$80000 - $100000,Married,Self-employed,Car,Fitness Instructor,"Creating diverse workout routines, client motivation",Renting a small apartment in a fitness-friendly community
+26,44,Female,High School,7,9,6,$80000 - $100000,Married,Part-time,Public Transportation,Web Developer,"Debugging complex code, staying updated on languages",Working from a home office in a suburban neighborhood
+27,38,Female,Master's Degree,8,4,7,$40000 - $60000,Divorced,Self-employed,Public Transportation,Interior Designer,"Meeting client expectations, sourcing unique materials",Renting a loft apartment with a creative workspace
+28,57,Non-binary,Bachelor's Degree,10,7,6,$60000 - $80000,Married,Part-time,Walking,Firefighter,"Emergency response, physical demands of the job","Living in a fire station during shifts, own house otherwise"
+29,27,Female,Ph.D.,4,5,6,$20000 - $40000,Married,Full-time,Public Transportation,Event Planner,"Managing multiple events, handling last-minute changes",Renting a city apartment with a dedicated home office
+30,31,Male,Bachelor's Degree,10,10,7,$60000 - $80000,Divorced,Self-employed,Walking,Biomedical Researcher,"Obtaining research funding, staying current with studies",Living in a rented apartment near the research facility
+31,41,Non-binary,Bachelor's Degree,7,2,8,$20000 - $40000,Single,Unemployed,Bicycle,IT Support Specialist,"Dealing with technical issues, multitasking",Renting a suburban house with a home office
+32,26,Male,Ph.D.,2,8,10,$20000 - $40000,Widowed,Self-employed,Bicycle,Dental Hygienist,"Long appointments, maintaining patient comfort",Sharing a rented house with colleagues
+33,58,Male,Ph.D.,3,1,6,$40000 - $60000,Divorced,Self-employed,Public Transportation,Architect,"Balancing design and functionality, client expectations",Living in a self-designed modern home
+34,31,Non-binary,Bachelor's Degree,10,6,7,$20000 - $40000,Single,Part-time,Car,Marketing Manager,"Developing effective campaigns, meeting ROI goals",Renting a city apartment with a scenic view
+35,38,Female,Bachelor's Degree,9,3,6,$60000 - $80000,Single,Part-time,Bicycle,Biomedical Scientist,"Navigating grant applications, conducting experiments",Living in a rented townhouse near the research facility
+36,53,Female,Master's Degree,10,9,7,$20000 - $40000,Widowed,Full-time,Public Transportation,IT Consultant,"Implementing IT solutions, continuous learning",Renting a modern apartment in a tech-friendly neighborhood
+37,37,Female,Ph.D.,9,4,8,$20000 - $40000,Single,Unemployed,Public Transportation,Customer Success Manager,"Ensuring client satisfaction, resolving issues",Sharing a rented flat with colleagues in the city
+38,26,Female,Bachelor's Degree,1,7,6,$60000 - $80000,Single,Part-time,Bicycle,Fitness Coach,"Creating personalized fitness plans, client motivation",Renting a small house with a backyard for outdoor workouts
+39,33,Female,Ph.D.,2,5,8,$60000 - $80000,Single,Self-employed,Car,Environmental Scientist,"Researching climate patterns, advocating for sustainability",Living in a suburban duplex with a garden
+40,43,Female,Master's Degree,10,10,7,$20000 - $40000,Married,Full-time,Public Transportation,Content Creator,"Producing engaging content, keeping up with trends",Working from a home office in a cozy apartment
+41,62,Male,High School,3,2,6,$80000 - $100000,Single,Part-time,Bicycle,Financial Planner,"Managing investments, staying informed on market trends",Owning a condominium in a financial district
+42,23,Female,High School,1,8,8,$60000 - $80000,Single,Part-time,Walking,Social Worker,"Assisting vulnerable populations, advocating for social justice",Renting an urban apartment close to community centers
+43,42,Female,Master's Degree,1,1,8,$20000 - $40000,Single,Part-time,Walking,Retail Supervisor,"Overseeing store operations, meeting sales targets",Renting a suburban house with roommates
+44,48,Male,Bachelor's Degree,3,6,7,$40000 - $60000,Divorced,Part-time,Bicycle,Supply Chain Analyst,"Optimizing logistics, managing inventory levels",Renting an apartment in a logistics hub
+45,34,Female,Ph.D.,5,3,5,$20000 - $40000,Married,Part-time,Car,Medical Researcher,"Conducting clinical trials, staying abreast of medical advancements",Living in a rented apartment near the medical research center
+46,21,Male,Ph.D.,6,9,8,$40000 - $60000,Widowed,Full-time,Car,Digital Marketer,"Executing digital strategies, analyzing performance metrics",Renting a downtown loft with a creative workspace
+47,46,Female,Ph.D.,10,4,5,$80000 - $100000,Divorced,Unemployed,Car,Civil Engineer,"Designing infrastructure, ensuring compliance with regulations",Owning a suburban home with a garden
+48,40,Female,Ph.D.,7,7,6,$20000 - $40000,Married,Full-time,Walking,Educational Consultant,"Advising on curriculum development, facilitating workshops",Renting a townhouse in a family-friendly neighborhood
+49,32,Male,High School,1,5,8,$20000 - $40000,Married,Part-time,Public Transportation,Social Media Influencer,"Creating engaging content, building an online presence",Renting a stylish apartment in a trendy neighborhood
+50,54,Non-binary,Master's Degree,10,10,7,$20000 - $40000,Widowed,Full-time,Public Transportation,Supply Chain Manager,"Optimizing supply chain efficiency, managing vendor relationships",Homeownership in a suburban neighborhood
+51,27,Female,High School,8,2,6,$60000 - $80000,Divorced,Unemployed,Bicycle,Public Health Analyst,"Analyzing health trends, contributing to public health policies",Renting an apartment near a public health institute
+52,54,Male,Ph.D.,10,8,8,$80000 - $100000,Single,Unemployed,Public Transportation,UX/UI Designer,"Balancing aesthetics and functionality, meeting user expectations",Working from a home office in a city apartment
+53,23,Male,High School,5,1,7,$80000 - $100000,Married,Unemployed,Walking,Automotive Mechanic,"Diagnosing and repairing vehicles, staying current on automotive technology",Owning a house with a garage in a quiet neighborhood
+54,35,Non-binary,Ph.D.,10,6,9,$40000 - $60000,Married,Self-employed,Bicycle,Public Relations Coordinator,"Coordinating press events, maintaining media relations",Renting a city apartment with easy access to PR events
+55,27,Female,Bachelor's Degree,8,3,6,$20000 - $40000,Married,Unemployed,Car,Educational Psychologist,"Supporting students' mental health, conducting assessments",Renting a cozy apartment near educational institutions
+56,25,Female,Bachelor's Degree,8,9,8,$40000 - $60000,Widowed,Full-time,Car,Digital Nomad,"Freelancing remotely, managing a flexible lifestyle",Traveling and staying in various locations worldwide
+57,60,Female,Bachelor's Degree,1,4,6,$20000 - $40000,Single,Full-time,Car,Marine Biologist,"Researching marine ecosystems, participating in fieldwork",Living in a coastal townhouse with a view of the ocean
+58,63,Non-binary,Ph.D.,2,7,7,$80000 - $100000,Married,Part-time,Walking,E-commerce Manager,"Optimizing online sales, staying competitive in the market",Renting a modern apartment near the e-commerce headquarters
+59,46,Female,Master's Degree,6,5,6,$80000 - $100000,Married,Part-time,Public Transportation,Tour Guide,"Creating memorable experiences for tourists, adapting to different cultures",Living in a rented cottage in a tourist destination
+60,51,Female,Ph.D.,2,10,8,$80000 - $100000,Single,Self-employed,Car,Art Curator,"Managing art collections, organizing exhibitions",Renting an artsy loft in a cultural district
+61,28,Female,High School,9,2,7,$80000 - $100000,Divorced,Unemployed,Public Transportation,Meteorologist,"Analyzing weather patterns, providing accurate forecasts",Renting a suburban house with a home weather station
+62,33,Male,Master's Degree,1,8,7,$60000 - $80000,Married,Unemployed,Bicycle,Event Planner,"Managing multiple events, handling last-minute changes",Renting a city apartment with a dedicated home office
+63,37,Female,Ph.D.,9,1,10,$80000 - $100000,Single,Self-employed,Bicycle,Biomedical Researcher,"Obtaining research funding, staying current with studies",Living in a rented apartment near the research facility
+64,46,Male,Ph.D.,5,6,8,$40000 - $60000,Divorced,Part-time,Walking,IT Support Specialist,"Dealing with technical issues, multitasking",Renting a suburban house with a home office
+65,38,Female,Ph.D.,7,3,7,$80000 - $100000,Married,Full-time,Car,Dental Hygienist,"Long appointments, maintaining patient comfort",Sharing a rented house with colleagues
+66,47,Female,Master's Degree,3,9,7,$40000 - $60000,Single,Unemployed,Public Transportation,Architect,"Balancing design and functionality, client expectations",Living in a self-designed modern home
+67,21,Male,Bachelor's Degree,10,4,6,$20000 - $40000,Single,Part-time,Public Transportation,UX/UI Designer,"Balancing aesthetics and functionality, meeting deadlines",Remote work setup in a house with a dedicated office
+68,59,Female,Master's Degree,4,7,7,$60000 - $80000,Married,Self-employed,Public Transportation,Accountant,"Managing complex financial records, tax regulations",Renting a one-bedroom apartment in a residential area
+69,57,Non-binary,Bachelor's Degree,7,5,9,$20000 - $40000,Widowed,Unemployed,Bicycle,Sales Manager,"Leading a sales team, meeting revenue targets",Homeownership in a suburban neighborhood
+70,51,Male,Master's Degree,2,10,7,$60000 - $80000,Single,Full-time,Public Transportation,Photographer,"Client expectations, post-production workload",Freelancing from a spacious loft in the city
+71,24,Male,Ph.D.,6,2,6,$80000 - $100000,Single,Full-time,Public Transportation,HR Specialist,"Employee conflicts, policy implementation",Living in a rented apartment close to the office
+72,44,Female,Master's Degree,10,8,8,$40000 - $60000,Married,Self-employed,Car,Electrician,"Safety concerns, handling electrical faults",Owning a house in a rural area with a workshop
+73,32,Male,Ph.D.,6,1,7,$20000 - $40000,Married,Unemployed,Bicycle,Journalist,"Tight deadlines, staying unbiased in reporting",Renting a studio apartment in a vibrant urban district
+74,37,Non-binary,Ph.D.,2,6,8,$20000 - $40000,Single,Part-time,Bicycle,Pharmacist,"Dealing with insurance claims, long work hours",Living in a rented duplex near the pharmacy
+75,46,Female,Ph.D.,8,3,6,$80000 - $100000,Divorced,Full-time,Public Transportation,Retail Supervisor,"Overseeing store operations, meeting sales targets",Renting a suburban house with roommates
+76,60,Non-binary,High School,2,9,7,$20000 - $40000,Single,Full-time,Car,Administrative Assistant,"Managing office tasks, coordinating schedules",Renting a cozy apartment in a quiet neighborhood
+77,61,Male,Ph.D.,8,4,6,$20000 - $40000,Married,Full-time,Public Transportation,Customer Service Representative,"Handling customer inquiries, resolving issues",Sharing a rented flat with friends in the city
+78,59,Male,Bachelor's Degree,8,7,7,$40000 - $60000,Married,Part-time,Walking,Delivery Driver,"Ensuring timely deliveries, navigating traffic",Renting a small apartment in a convenient location
+79,29,Non-binary,High School,1,5,6,$60000 - $80000,Divorced,Part-time,Bicycle,Bank Teller,"Assisting customers with transactions, ensuring accuracy",Renting an apartment in a residential neighborhood
+80,52,Female,High School,5,10,8,$20000 - $40000,Married,Self-employed,Public Transportation,Office Manager,"Coordinating office activities, managing resources",Owning a suburban home with a home office
+81,46,Male,Master's Degree,8,2,6,$20000 - $40000,Divorced,Full-time,Public Transportation,Cashier,"Processing transactions, providing customer service",Renting an apartment in a budget-friendly neighborhood
+82,53,Female,Ph.D.,4,8,7,$60000 - $80000,Single,Full-time,Car,Janitor,"Performing cleaning duties, maintaining facility hygiene",Living in a rented duplex near work
+83,23,Female,Ph.D.,8,1,6,$20000 - $40000,Divorced,Self-employed,Public Transportation,Receptionist,"Managing front desk responsibilities, welcoming visitors",Renting a city apartment with easy commute access
+84,54,Male,High School,4,6,8,$40000 - $60000,Married,Part-time,Car,Security Guard,"Maintaining premises security, monitoring surveillance",Renting an urban apartment with 24/7 security
+85,51,Non-binary,Bachelor's Degree,10,3,7,$60000 - $80000,Single,Self-employed,Public Transportation,Grocery Store Clerk,"Assisting customers with shopping, restocking shelves",Renting a small house in a family-friendly neighborhood
+86,37,Female,Ph.D.,5,9,8,$20000 - $40000,Divorced,Unemployed,Walking,Postal Worker,"Delivering mail, adhering to schedules",Renting an apartment near the local post office
+87,32,Female,Ph.D.,8,4,8,$80000 - $100000,Married,Part-time,Walking,Telemarketer,"Making outbound calls, meeting sales quotas",Renting a city apartment with a quiet workspace
+88,47,Male,Bachelor's Degree,1,7,7,$80000 - $100000,Divorced,Part-time,Walking,Fast Food Worker,"Taking orders, preparing food items",Renting an apartment near the fast-food restaurant
+89,23,Non-binary,Bachelor's Degree,9,5,5,$20000 - $40000,Divorced,Self-employed,Bicycle,Housekeeper,Cleaning and maintaining residential spaces,Renting a suburban house with a backyard
+90,36,Male,Ph.D.,10,10,8,$60000 - $80000,Married,Full-time,Bicycle,Plumber,"Fixing plumbing issues, responding to service calls",Owning a house in a quiet suburban neighborhood
+91,28,Male,Ph.D.,8,2,6,$20000 - $40000,Single,Part-time,Car,Garbage Collector,"Collecting and disposing of waste, adhering to routes",Renting an apartment in proximity to the waste collection center
+92,49,Female,Master's Degree,2,8,7,$20000 - $40000,Married,Self-employed,Car,Landscaper,"Performing outdoor maintenance, landscaping projects",Living in a rented townhouse with a garden
+93,44,Non-binary,High School,2,1,6,$80000 - $100000,Divorced,Unemployed,Car,Waiter/Waitress,"Taking orders, serving customers in a restaurant",Renting a city apartment close to the restaurant
+94,53,Female,Ph.D.,7,6,8,$80000 - $100000,Married,Unemployed,Car,Taxi Driver,"Navigating city routes, providing transportation services",Renting a studio apartment in a central location
+95,20,Non-binary,High School,5,3,5,$20000 - $40000,Single,Part-time,Walking,Retail Sales Associate,"Assisting customers, maintaining store appearance",Renting a townhouse in a residential neighborhood
+96,33,Male,Bachelor's Degree,9,9,9,$60000 - $80000,Married,Part-time,Public Transportation,Childcare Worker,"Providing care for children, creating a safe environment",Renting a suburban house with a play area
+97,45,Female,Ph.D.,1,4,4,$20000 - $40000,Widowed,Full-time,Public Transportation,Factory Worker,"Operating machinery, meeting production targets",Living in a rented apartment near the factory
+98,29,Non-binary,High School,6,7,5,$80000 - $100000,Single,Part-time,Walking,Hair Stylist,"Cutting and styling hair, managing client appointments",Renting a studio apartment near the salon
+99,48,Female,Bachelor's Degree,5,5,10,$60000 - $80000,Married,Unemployed,Public Transportation,School Bus Driver,"Ensuring safe transportation for students, following routes",Owning a suburban home with a garage
+100,64,Non-binary,Bachelor's Degree,7,10,8,$80000 - $100000,Divorced,Full-time,Bicycle,Librarian,"Managing library resources, adapting to digital trends",Residing in a cozy cottage near the library

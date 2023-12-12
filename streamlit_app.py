@@ -47,7 +47,7 @@ loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
 data = loader.load()
 st.write(data)
 
-embeddings = HuggingFaceEmbeddings(api_key=hf_api_key)
+embeddings = HuggingFaceEmbeddings(hf_api_key)
 vectorstore = FAISS.from_documents(data, embeddings)
 
 chain = ConversationalRetrievalChain.from_llm(

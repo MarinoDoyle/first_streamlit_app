@@ -66,7 +66,7 @@ if st.button("Ask"):
 
         # Run the chain with question and empty chat history as inputs
         chain_input = {'question': question, 'chat_history': ''}
-        response = llm(chain_input)
+        response = chain(chain_input)
         st.text_area("Response:", value=response['response'])
 
 # Display Q&A results outside the button click

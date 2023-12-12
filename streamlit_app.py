@@ -66,7 +66,6 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-
         st.subheader("Stored Q&A Results:")
         for idx, (q, a) in enumerate(qa_results, 1):
             st.write(f"Q{idx}: {q}")

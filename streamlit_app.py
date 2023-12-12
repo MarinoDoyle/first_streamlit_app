@@ -48,16 +48,6 @@ if api_key:
     llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
     retriever=vectorstore.as_retriever())
 
-
-def conversational_chat(query):
-        
-    result = chain({"question": query, 
-    "chat_history": st.session_state['history']})
-    st.session_state['history'].append((query, result["answer"]))    
-    return result["answer"]
-
-
-
 st.title("Chat-Based Language Model")
 
 question = st.text_input("Enter your question here:")
@@ -66,5 +56,22 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = chain.run(question)
-        st.text_area("Response:", value=response)
+        response = "No response"
+        if 'vector_store' in locals():
+            query_embedding = embeddings.encode_text(question)
+            retrieved = vector_store.retrieve(query_embedding)
+            response = retrieved[0] if retrieved else "No similar documents found"
+        
+        qa_results.append((question, response))  # Store Q&A results
+
+        # Run the chain with question and empty chat history as inputs
+        chain_input = {'question': question, 'chat_history': ''}
+        response = llm(chain_input)
+        st.text_area("Response:", value=response['response'])
+
+# Display Q&A results outside the button click
+if qa_results:
+    st.subheader("Stored Q&A Results:")
+    for idx, (q, a) in enumerate(qa_results, 1):
+        st.write(f"Q{idx}: {q}")
+        st.write(f"A{idx}: {a}")

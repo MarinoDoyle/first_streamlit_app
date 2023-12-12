@@ -22,4 +22,10 @@ data = loader.load()
 text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
 all_splits_csv = text_splitter_csv.split_documents(data)
 
-st.write(all_splits_csv)
+# st.write(all_splits_csv)
+
+embeddings = HuggingFaceEmbeddings()
+vectorstore = FAISS.from_documents(all_splits_csv, embeddings)
+question = "What is the most frequent result for total number of rooms"
+embedding_vector = embeddings.embed_query(question)
+st.write(embedding_vector)

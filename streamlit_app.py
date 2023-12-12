@@ -15,14 +15,14 @@ from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.agents.agent_types import AgentType
 
 
-user_api_key = st.sidebar.text_input(
+api_key = st.sidebar.text_input(
     label="#### Your OpenAI API key 👇",
     placeholder="Paste your openAI API key, sk-",
     type="password")
 
 uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 
-if user_api_key:
+if api_key:
     agent = create_csv_agent(
         ChatOpenAI(temperature=0,  api_key=api_key),
         "work_dummy_data.csv",

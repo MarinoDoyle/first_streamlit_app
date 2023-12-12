@@ -52,8 +52,6 @@ st.title("Chat-Based Language Model")
 question = st.text_input("Enter your question here:")
 conversation_history = []
 
-question = st.text_input("Enter your question here:")
-
 if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
@@ -69,13 +67,6 @@ if conversation_history:
     st.subheader("Conversation History:")
     for role, text in conversation_history:
         st.write(f"{role} {text}")
-
-
-
-
-
-
-
 
 # if st.button("Ask"):
 #     if 'api_key' not in locals():

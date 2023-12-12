@@ -44,13 +44,11 @@ Question: {question}
 """
 prompt = ChatPromptTemplate.from_template(template)
 
-# def format_docs(data):
-#     return "\n\n".join(doc.page_content for doc in data)
 
-rag_chain = (
-    {"context": retriever | "question": RunnablePassthrough()}
+chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
     | prompt
-    | model
+    | llm
     | StrOutputParser()
 )
 

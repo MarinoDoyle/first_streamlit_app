@@ -31,7 +31,8 @@ if api_key:
         ChatOpenAI(temperature=0,  api_key=api_key),
         "work_dummy_data.csv",
         verbose=True,
-        agent_type=AgentType.OPENAI_FUNCTIONS,
+        agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        # agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
     # # Loading in the actual data.

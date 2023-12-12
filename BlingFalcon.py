@@ -52,4 +52,4 @@ chain = (
     | StrOutputParser()
 )
 
-rag_chain.invoke("What are some key insights?")
+chain.invoke("What are some key insights?")

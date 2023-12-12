@@ -11,4 +11,4 @@ output = model(**encoded_input)
 st.write(output)
 # llm = 
 generator = pipeline('text-generation', model='gpt2')
-st.write(generator("The White man worked as a", max_length=10, num_return_sequences=5))
+st.write(generator("What is Machine Learning", max_length=10, num_return_sequences=5))

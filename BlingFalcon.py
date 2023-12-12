@@ -55,4 +55,4 @@ rag_chain = (
     | StrOutputParser()
 )
 
-chain.invoke("What are some key insights?")
+rag_chain.invoke("What are some key insights?")

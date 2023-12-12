@@ -15,6 +15,7 @@ from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.agents.agent_types import AgentType
 
 
+
 api_key = st.sidebar.text_input(
     label="#### Your OpenAI API key 👇",
     placeholder="Paste your openAI API key, sk-",
@@ -23,6 +24,7 @@ api_key = st.sidebar.text_input(
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 
 if api_key:
+    # Creating a csv agent allows us to query the tables a lot easier
     agent = create_csv_agent(
         ChatOpenAI(temperature=0,  api_key=api_key),
         "work_dummy_data.csv",
@@ -30,12 +32,52 @@ if api_key:
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
-
+    # Loading in the actual data.
     loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
                 'delimiter': ','})
     data = loader.load()
-
     st.write(data)
+
+    embeddings = OpenAIEmbeddings()
+    vectorstore = FAISS.from_documents(data, embeddings)
+
+    chain = ConversationalRetrievalChain.from_llm(
+    llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo'),
+    retriever=vectorstore.as_retriever())
+
+
+def conversational_chat(query):
+        
+    result = chain({"question": query, 
+    "chat_history": st.session_state['history']})
+    st.session_state['history'].append((query, result["answer"]))    
+    return result["answer"]
+
+if 'history' not in st.session_state:
+    st.session_state['history'] = []
+
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = ["Hello ! Ask me anything about " + uploaded_file.name + " 🤗"]
+
+if 'past' not in st.session_state:
+    st.session_state['past'] = ["Hey ! 👋"]
+        
+#container for the chat history
+response_container = st.container()
+#container for the user's text input
+container = st.container()
+
+with container:
+    with st.form(key='my_form', clear_on_submit=True):
+            
+        user_input = st.text_input("Query:", placeholder="Talk about your csv data here (:", key='input')
+        submit_button = st.form_submit_button(label='Send')
+            
+    if submit_button and user_input:
+        output = conversational_chat(user_input)
+            
+        st.session_state['past'].append(user_input)
+        st.session_state['generated'].append(output)
 
 
 st.title("Chat-Based Language Model")

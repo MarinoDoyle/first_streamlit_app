@@ -79,14 +79,19 @@ with container:
         st.session_state['past'].append(user_input)
         st.session_state['generated'].append(output)
 
-
+if st.session_state['generated']:
+    with response_container:
+        for i in range(len(st.session_state['generated'])):
+            message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="big-smile")
+            message(st.session_state["generated"][i], key=str(i), avatar_style="thumbs")
+            
 st.title("Chat-Based Language Model")
 
 question = st.text_input("Enter your question here:")
 
-if st.button("Ask"):
-    if 'api_key' not in locals():
-        st.error("Please enter your API Key in the sidebar.")
-    else:
-        response = agent.run(question)
-        st.text_area("Response:", value=response)
+# if st.button("Ask"):
+#     if 'api_key' not in locals():
+#         st.error("Please enter your API Key in the sidebar.")
+#     else:
+#         response = agent.run(question)
+#         st.text_area("Response:", value=response)

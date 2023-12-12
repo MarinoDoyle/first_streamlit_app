@@ -22,6 +22,7 @@ api_key = st.sidebar.text_input(
     type="password")
 
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
+file_name = "work_dummy_data"
 
 if api_key:
     # Creating a csv agent allows us to query the tables a lot easier
@@ -57,7 +58,7 @@ if 'history' not in st.session_state:
     st.session_state['history'] = []
 
 if 'generated' not in st.session_state:
-    st.session_state['generated'] = ["Hello ! Ask me anything about " + uploaded_file.name + " 🤗"]
+    st.session_state['generated'] = ["Hello ! Ask me anything about " + file_name + " 🤗"]
 
 if 'past' not in st.session_state:
     st.session_state['past'] = ["Hey ! 👋"]

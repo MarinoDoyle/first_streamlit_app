@@ -39,7 +39,7 @@ if api_key:
     data = loader.load()
     st.write(data)
 
-    embeddings = OpenAIEmbeddings()
+    embeddings = HuggingFaceEmbeddings()
     vectorstore = FAISS.from_documents(data, embeddings)
 
     chain = ConversationalRetrievalChain.from_llm(
@@ -90,9 +90,9 @@ st.title("Chat-Based Language Model")
 
 question = st.text_input("Enter your question here:")
 
-# if st.button("Ask"):
-#     if 'api_key' not in locals():
-#         st.error("Please enter your API Key in the sidebar.")
-#     else:
-#         response = agent.run(question)
-#         st.text_area("Response:", value=response)
+if st.button("Ask"):
+    if 'api_key' not in locals():
+        st.error("Please enter your API Key in the sidebar.")
+    else:
+        response = agent.run(question)
+        st.text_area("Response:", value=response)

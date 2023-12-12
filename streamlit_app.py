@@ -15,8 +15,12 @@ from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.agents.agent_types import AgentType
 
 
-st.sidebar.title("Enter API Key")
-api_key = st.sidebar.text_input("API Key:")
+user_api_key = st.sidebar.text_input(
+    label="#### Your OpenAI API key 👇",
+    placeholder="Paste your openAI API key, sk-",
+    type="password")
+
+uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 
 if api_key:
     agent = create_csv_agent(
@@ -25,6 +29,7 @@ if api_key:
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
+    
 # Creating text embeddings and vector database
 #loader = CSVLoader(file_path="work_dummy_data.csv")
 #data = loader.load()

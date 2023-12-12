@@ -27,7 +27,7 @@ file_name = "work_dummy_data"
 if api_key:
     # Creating a csv agent allows us to query the tables a lot easier
     agent = create_csv_agent(
-        ChatOpenAI(temperature=0,  api_key),
+        ChatOpenAI(temperature=0,  api_key=api_key),
         "work_dummy_data.csv",
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
@@ -43,7 +43,7 @@ if api_key:
     vectorstore = FAISS.from_documents(data, embeddings)
 
     chain = ConversationalRetrievalChain.from_llm(
-    llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo'),
+    llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
     retriever=vectorstore.as_retriever())
 
 

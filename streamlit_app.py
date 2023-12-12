@@ -21,16 +21,9 @@ api_key = st.sidebar.text_input(
     placeholder="Paste your openAI API key, sk-",
     type="password")
 
-# hf_api_key = st.sidebar.text_input(
-#     label="#### Your HF API key 👇",
-#     placeholder="Paste your HF API key",
-#     type="password")
-
 
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 file_name = "work_dummy_data"
-
-qa_results = []
 
 if api_key:
     # Creating a csv agent allows us to query the tables a lot easier
@@ -67,9 +60,6 @@ if st.button("Ask"):
             query_embedding = embeddings.encode_text(question)
             retrieved = vector_store.retrieve(query_embedding)
             response = retrieved[0] if retrieved else "No similar documents found"
-        
-        qa_results.append((question, response))  # Store Q&A results
-
         # Run the chain with question and empty chat history as inputs
         chain_input = {'question': question, 'chat_history': ''}
         response = agent.run(chain_input)

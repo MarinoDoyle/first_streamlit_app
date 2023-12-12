@@ -55,13 +55,20 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = "No response"
-        if 'vector_store' in locals():
-            query_embedding = embeddings.encode_text(question)
-            retrieved = vector_store.retrieve(query_embedding)
-            response = retrieved[0] if retrieved else "No similar documents found"
-        # Run the chain with question and empty chat history as inputs
-        chain_input = {'question': question, 'chat_history': ''}
-        response = agent.run(chain_input)
+        response = agent.run(question)
         st.text_area("Response:", value=response)
+
+# if st.button("Ask"):
+#     if 'api_key' not in locals():
+#         st.error("Please enter your API Key in the sidebar.")
+#     else:
+#         response = "No response"
+#         if 'vector_store' in locals():
+#             query_embedding = embeddings.encode_text(question)
+#             retrieved = vector_store.retrieve(query_embedding)
+#             response = retrieved[0] if retrieved else "No similar documents found"
+#         # Run the chain with question and empty chat history as inputs
+#         chain_input = {'question': question, 'chat_history': ''}
+#         response = agent.run(chain_input)
+#         st.text_area("Response:", value=response)
 

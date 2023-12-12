@@ -15,7 +15,7 @@ st.write(generator("What is Machine Learning", num_return_sequences=5))
 
 # Loading in the CSV files: 
 
-loader = CSVLoader(file_path='work_dummy_data.xsv')
+loader = CSVLoader(file_path='work_dummy_data.csv')
 data = loader.load()
 
 text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)

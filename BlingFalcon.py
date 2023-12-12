@@ -12,11 +12,11 @@ from langchain.prompts import ChatPromptTemplate
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 model = GPT2Model.from_pretrained('gpt2')
-text = "Replace me by any text you'd like."
-encoded_input = tokenizer(text, return_tensors='pt')
-output = model(**encoded_input)
+#text = "Replace me by any text you'd like."
+#encoded_input = tokenizer(text, return_tensors='pt')
+#output = model(**encoded_input)
 
-# generator = pipeline('text-generation', model='gpt2')
+llm = pipeline('text-generation', model='gpt2')
 # st.write(generator("What is Machine Learning", num_return_sequences=5))
 
 # Loading in the CSV files: 
@@ -37,6 +37,9 @@ st.write(embedding_vector)
 
 retriever = vectorstore.as_retriever()
 
+def format_docs(data):
+    return "\n\n".join(doc.page_content for doc in data)
+
 template = """Answer the question based only on the following context:
 {context}
 
@@ -45,10 +48,10 @@ Question: {question}
 prompt = ChatPromptTemplate.from_template(template)
 
 
-chain = (
-    {"context": retriever, "question": RunnablePassthrough()}
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
     | prompt
-    | model
+    | llm
     | StrOutputParser()
 )
 

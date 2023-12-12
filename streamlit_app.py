@@ -34,18 +34,18 @@ if api_key:
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
-    # Loading in the actual data.
-    loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
-        'delimiter': ','})
-    data = loader.load()
-    st.write(data)
+    # # Loading in the actual data.
+    # loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
+    #     'delimiter': ','})
+    # data = loader.load()
+    # st.write(data)
 
-    embeddings = HuggingFaceEmbeddings()
-    vectorstore = FAISS.from_documents(data, embeddings)
+    # embeddings = HuggingFaceEmbeddings()
+    # vectorstore = FAISS.from_documents(data, embeddings)
 
-    chain = ConversationalRetrievalChain.from_llm(
-    llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
-    retriever=vectorstore.as_retriever())
+    # chain = ConversationalRetrievalChain.from_llm(
+    # llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
+    # retriever=vectorstore.as_retriever())
 
 st.title("Chat-Based Language Model")
 

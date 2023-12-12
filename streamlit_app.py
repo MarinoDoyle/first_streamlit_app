@@ -21,12 +21,18 @@ api_key = st.sidebar.text_input(
     placeholder="Paste your openAI API key, sk-",
     type="password")
 
+hf_api_key = st.sidebar.text_input(
+    label="#### Your OpenAI API key 👇",
+    placeholder="Paste your openAI API key, sk-",
+    type="password")
+
+
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 file_name = "work_dummy_data"
 
 qa_results = []
 
-if api_key:
+if api_key && hf_api_key:
     # Creating a csv agent allows us to query the tables a lot easier
     agent = create_csv_agent(
         ChatOpenAI(temperature=0,  api_key=api_key),
@@ -41,7 +47,7 @@ loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
 data = loader.load()
 st.write(data)
 
-embeddings = OpenAIEmbeddings(api_key=api_key)
+embeddings = HuggingFaceEmbeddings(api_key=hf_api_key)
 vectorstore = FAISS.from_documents(data, embeddings)
 
 chain = ConversationalRetrievalChain.from_llm(

@@ -32,7 +32,7 @@ file_name = "work_dummy_data"
 
 qa_results = []
 
-if api_key and hf_api_key:
+if api_key:
     # Creating a csv agent allows us to query the tables a lot easier
     agent = create_csv_agent(
         ChatOpenAI(temperature=0,  api_key=api_key),

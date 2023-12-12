@@ -5,6 +5,7 @@ from langchain.llms import HuggingFacePipeline
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.vectorstores import FAISS
 
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
@@ -13,8 +14,8 @@ text = "Replace me by any text you'd like."
 encoded_input = tokenizer(text, return_tensors='pt')
 output = model(**encoded_input)
 
-generator = pipeline('text-generation', model='gpt2')
-st.write(generator("What is Machine Learning", num_return_sequences=5))
+# generator = pipeline('text-generation', model='gpt2')
+# st.write(generator("What is Machine Learning", num_return_sequences=5))
 
 # Loading in the CSV files: 
 

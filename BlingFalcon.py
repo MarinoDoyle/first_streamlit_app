@@ -48,7 +48,7 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = (
     {"context": retriever, "question": RunnablePassthrough()}
     | prompt
-    | llm
+    | model
     | StrOutputParser()
 )
 

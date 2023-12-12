@@ -39,7 +39,7 @@ if api_key:
     data = loader.load()
     st.write(data)
 
-    embeddings = HuggingFaceEmbeddings()
+    embeddings = OpenAIEmbeddings(api_key=api_key)
     vectorstore = FAISS.from_documents(data, embeddings)
 
     chain = ConversationalRetrievalChain.from_llm(

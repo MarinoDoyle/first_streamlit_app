@@ -31,7 +31,7 @@ if api_key:
     )
 
 
-    loader = CSVLoader(file_path="survey.csv", encoding="utf-8", csv_args={
+    loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
                 'delimiter': ','})
     data = loader.load()
 

@@ -35,19 +35,22 @@ if api_key:
     )
 
     # Loading in the actual data.
-loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
+    loader = CSVLoader(file_path="work_dummy_data.csv", encoding="utf-8", csv_args={
         'delimiter': ','})
-data = loader.load()
-st.write(data)
+    data = loader.load()
+    st.write(data)
 
-embeddings = HuggingFaceEmbeddings()
-vectorstore = FAISS.from_documents(data, embeddings)
+    embeddings = HuggingFaceEmbeddings()
+    vectorstore = FAISS.from_documents(data, embeddings)
 
-chain = ConversationalRetrievalChain.from_llm(
-llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
-retriever=vectorstore.as_retriever())
+    chain = ConversationalRetrievalChain.from_llm(
+    llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', api_key=api_key),
+    retriever=vectorstore.as_retriever())
 
 st.title("Chat-Based Language Model")
+
+question = st.text_input("Enter your question here:")
+conversation_history = []
 
 question = st.text_input("Enter your question here:")
 
@@ -56,7 +59,30 @@ if st.button("Ask"):
         st.error("Please enter your API Key in the sidebar.")
     else:
         response = agent.run(question)
+        conversation_history.append(('You:', question))
+        conversation_history.append(('AI:', response))
+
         st.text_area("Response:", value=response)
+
+# Display conversation history
+if conversation_history:
+    st.subheader("Conversation History:")
+    for role, text in conversation_history:
+        st.write(f"{role} {text}")
+
+
+
+
+
+
+
+
+# if st.button("Ask"):
+#     if 'api_key' not in locals():
+#         st.error("Please enter your API Key in the sidebar.")
+#     else:
+#         response = agent.run(question)
+#         st.text_area("Response:", value=response)
 
 # if st.button("Ask"):
 #     if 'api_key' not in locals():

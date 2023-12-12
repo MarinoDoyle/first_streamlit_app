@@ -24,7 +24,7 @@ api_key = st.sidebar.text_input(
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 file_name = "work_dummy_data"
 
-qa_results = [
+qa_results = []
 
 if api_key:
     # Creating a csv agent allows us to query the tables a lot easier

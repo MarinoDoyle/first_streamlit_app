@@ -22,8 +22,8 @@ api_key = st.sidebar.text_input(
     type="password")
 
 hf_api_key = st.sidebar.text_input(
-    label="#### Your OpenAI API key 👇",
-    placeholder="Paste your openAI API key, sk-",
+    label="#### Your HF API key 👇",
+    placeholder="Paste your HF API key",
     type="password")
 
 

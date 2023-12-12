@@ -66,9 +66,26 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        st.subheader("Stored Q&A Results:")
-        for idx, (q, a) in enumerate(qa_results, 1):
-            st.write(f"Q{idx}: {q}")
-            st.write(f"A{idx}: {a}")
-            # response = chain.run(question)
-            # st.text_area("Response:", value=response)
+        response = "No response"
+        if 'vector_store' in locals():
+            query_embedding = embeddings.encode_text(question)
+            retrieved = vector_store.retrieve(query_embedding)
+            response = retrieved[0] if retrieved else "No similar documents found"
+        
+        qa_results.append((question, response))  # Store Q&A results
+        st.text_area("Response:", value=response)
+
+# Display Q&A results outside the button click
+if qa_results:
+    st.subheader("Stored Q&A Results:")
+    for idx, (q, a) in enumerate(qa_results, 1):
+        st.write(f"Q{idx}: {q}")
+        st.write(f"A{idx}: {a}")
+
+
+# if st.button("Ask"):
+#     if 'api_key' not in locals():
+#         st.error("Please enter your API Key in the sidebar.")
+#     else:
+#         # response = chain.run(question)
+#         # st.text_area("Response:", value=response)

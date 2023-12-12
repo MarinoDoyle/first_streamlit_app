@@ -24,6 +24,8 @@ api_key = st.sidebar.text_input(
 # uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 file_name = "work_dummy_data"
 
+qa_results = [
+
 if api_key:
     # Creating a csv agent allows us to query the tables a lot easier
     agent = create_csv_agent(
@@ -64,5 +66,10 @@ if st.button("Ask"):
     if 'api_key' not in locals():
         st.error("Please enter your API Key in the sidebar.")
     else:
-        response = chain.run(question)
-        st.text_area("Response:", value=response)
+
+        st.subheader("Stored Q&A Results:")
+        for idx, (q, a) in enumerate(qa_results, 1):
+            st.write(f"Q{idx}: {q}")
+            st.write(f"A{idx}: {a}")
+            # response = chain.run(question)
+            # st.text_area("Response:", value=response)

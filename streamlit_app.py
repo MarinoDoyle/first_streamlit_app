@@ -30,26 +30,18 @@ if api_key:
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
-    if uploaded_file :
+if uploaded_file :
    #use tempfile because CSVLoader only accepts a file_path
     with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
         tmp_file.write(uploaded_file.getvalue())
         tmp_file_path = tmp_file.name
 
-    loader = CSVLoader(file_path=tmp_file_path, encoding="utf-8", csv_args={
+        loader = CSVLoader(file_path=tmp_file_path, encoding="utf-8", csv_args={
                 'delimiter': ','})
-    data = loader.load()
+        data = loader.load()
 
-    st.write(data)
-# Creating text embeddings and vector database
-#loader = CSVLoader(file_path="work_dummy_data.csv")
-#data = loader.load()
+        st.write(data)
 
-#text_splitter_csv = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20)
-#all_splits_csv = text_splitter_csv.split_documents(data)
-
-#embeddings = HuggingFaceEmbeddings()
-#vector_store = FAISS.from_documents(all_splits_csv, embeddings)
 
 st.title("Chat-Based Language Model")
 

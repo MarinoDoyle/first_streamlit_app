@@ -8,7 +8,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain_core.runnables import RunnablePassthrough
 from langchain.schema import StrOutputParser
-from langchain import hub
+from langchain.prompts import ChatPromptTemplate
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 model = GPT2Model.from_pretrained('gpt2')
@@ -35,15 +35,20 @@ question = "What is the most frequent result for total number of rooms"
 embedding_vector = embeddings.embed_query(question)
 st.write(embedding_vector)
 
-retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
+retriever = vectorstore.as_retriever()
 
-prompt = hub.pull("rlm/rag-prompt")
+template = """Answer the question based only on the following context:
+{context}
 
-def format_docs(data):
-    return "\n\n".join(doc.page_content for doc in data)
+Question: {question}
+"""
+prompt = ChatPromptTemplate.from_template(template)
+
+# def format_docs(data):
+#     return "\n\n".join(doc.page_content for doc in data)
 
 rag_chain = (
-    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    {"context": retriever | "question": RunnablePassthrough()}
     | prompt
     | model
     | StrOutputParser()

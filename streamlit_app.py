@@ -20,7 +20,7 @@ api_key = st.sidebar.text_input(
     placeholder="Paste your openAI API key, sk-",
     type="password")
 
-uploaded_file = st.sidebar.file_uploader("upload", type="csv")
+# uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 
 if api_key:
     agent = create_csv_agent(
@@ -31,7 +31,7 @@ if api_key:
     )
 
 
-    loader = CSVLoader(file_path=uploaded_file, encoding="utf-8", csv_args={
+    loader = CSVLoader(file_path="survey.csv", encoding="utf-8", csv_args={
                 'delimiter': ','})
     data = loader.load()
 

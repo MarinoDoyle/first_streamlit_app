@@ -39,7 +39,7 @@ retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k
 
 prompt = hub.pull("rlm/rag-prompt")
 
-def format_docs(docs):
+def format_docs(data):
     return "\n\n".join(doc.page_content for doc in docs)
 
 rag_chain = (

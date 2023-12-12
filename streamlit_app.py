@@ -22,7 +22,7 @@ user_api_key = st.sidebar.text_input(
 
 uploaded_file = st.sidebar.file_uploader("upload", type="csv")
 
-if api_key:
+if user_api_key:
     agent = create_csv_agent(
         ChatOpenAI(temperature=0,  api_key=api_key),
         "work_dummy_data.csv",

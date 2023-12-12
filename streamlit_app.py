@@ -30,17 +30,12 @@ if api_key:
         agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
-if uploaded_file :
-   #use tempfile because CSVLoader only accepts a file_path
-    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
-        tmp_file.write(uploaded_file.getvalue())
-        tmp_file_path = tmp_file.name
 
-        loader = CSVLoader(file_path=tmp_file_path, encoding="utf-8", csv_args={
+    loader = CSVLoader(file_path=uploaded_file, encoding="utf-8", csv_args={
                 'delimiter': ','})
-        data = loader.load()
+    data = loader.load()
 
-        st.write(data)
+    st.write(data)
 
 
 st.title("Chat-Based Language Model")

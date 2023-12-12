@@ -40,7 +40,7 @@ retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k
 prompt = hub.pull("rlm/rag-prompt")
 
 def format_docs(data):
-    return "\n\n".join(doc.page_content for doc in docs)
+    return "\n\n".join(doc.page_content for doc in data)
 
 rag_chain = (
     {"context": retriever | format_docs, "question": RunnablePassthrough()}

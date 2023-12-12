@@ -14,7 +14,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.agents.agent_types import AgentType
 import tempfile
-
+from langchain.chains import ConversationalRetrievalChain
 
 api_key = st.sidebar.text_input(
     label="#### Your OpenAI API key 👇",
